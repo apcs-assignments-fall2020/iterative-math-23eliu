@@ -4,22 +4,39 @@ public class MyMain {
     
     // Calculates the square root iteratively, using the Babylonian method
     public static double babylonian(double x) {
-        // REPLACE WITH YOUR CODE HERE
-        return -1;
+        double n = 1.0;
+        double m = 0.0;
+        while (Math.abs(x-n) > 0.00001) {
+            m = (n + (x/n))/2;
+            n = m;
+        }
+        return n;
     }
 
     // Calculates the factorial of a number
     public static double factorial(int x) {
-        // REPLACE WITH YOUR CODE HERE
-        return -1;
-    }
+        if (x == 0)
+            return 1;
+        else {
+            int count = x;
+            for (int i = x; i > 1; i--) {
+                x = x * (x-1);
+            }
+        }   
+        return x;
+    } 
 
     // Calculates the value for the math constant e iteratively
     // goes until it calculates an answer less than 0.00000000001 
     // different from the value Math.E
     public static double calculateE() {
-        // REPLACE WITH YOUR CODE HERE
-        return -1;
+        double finish = 1/factorial(0);
+        int count = 1;
+        while (Math.abs(finish-Math.E) > 0.00001) {
+            finish += 1/factorial(count);
+            count++;
+        }
+        return finish;
     }
     
     
