@@ -5,10 +5,10 @@ public class MyMain {
     // Calculates the square root iteratively, using the Babylonian method
     public static double babylonian(double x) {
         double n = 1.0;
-        double m = 0.0;
-        while (Math.abs(x-n) > 0.00001) {
-            m = (n + (x/n))/2;
-            n = m;
+        double old = 0.0;
+        while (Math.abs(n-old) > 0.00001) {
+            old = n;
+            n = (n + (x/n))/2;
         }
         return n;
     }
@@ -18,9 +18,8 @@ public class MyMain {
         if (x == 0)
             return 1;
         else {
-            int count = x;
             for (int i = x; i > 1; i--) {
-                x = x * (x-1);
+                x = x * (i-1);
             }
         }   
         return x;
@@ -43,10 +42,9 @@ public class MyMain {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        // YOUR CODE HERE
-
-
-        
+        System.out.println("Please enter a positive number: ");
+        System.out.println("The square root of your number is " + babylonian(Double.parseDouble(scan.next())));
+        System.out.println("The value of e is rougly: " + calculateE());
 
         scan.close();
     }
